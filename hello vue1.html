@@ -1,0 +1,34 @@
+<!-- HTML -->
+<script src="https://unpkg.com/vue"></script>
+<div id="app">
+   <p>{{ message }}</p>
+   <p>{{ message.split('') }}</p>
+   <p>{{ message.split('').reverse() }}</p>
+   <p>{{ message.split('').reverse().join('') }}</p>
+   <p v-html=messageNew></p>
+   <p v-on:click=text>Text: {{text()}}</p>
+</div>
+<script>
+   let vm = new Vue({
+   el: '#app',
+   data: {
+   message: 'Hello World!',
+   messageNew: '<h1>Hello Vue!<h1>',
+   },
+   
+   methods: {
+   text: function (){alert('text')},
+   },
+   
+   beforeCreate: function (){ console.log ('beforecreate', this.message)},
+   created: function (){ console.log ('created ', this.message)},
+   beforeMount: function (){ console.log ('beforemount ',this.message)},
+   mounted: function (){ console.log ('mounted ',this.message)},
+   //vm.message = 'test'
+   beforeUpdated: function (){ console.log ('beforeUpdated ',this.message)},
+   updated: function (){ console.log ('updated ',this.message)},
+   //vm.$destroy()
+   beforeDestroy: function (){ console.log ('beforedestroy ',this.message)},
+   destroyed: function (){ console.log ('destroyed ',this.message)},
+   })
+</script>

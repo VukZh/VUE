@@ -1,0 +1,18 @@
+<!-- HTML -->
+<script src="https://unpkg.com/vue"></script>
+<div id="app">
+   <title> {{message}} </title>
+   <p v-on:click=ReverseMessage> Reverse Title</p>
+</div>
+<script>
+   let vm = new Vue({
+   el: '#app',
+   data: {
+   message: 'Hello World!',
+   },
+   
+   methods: {
+   ReverseMessage: function (){this.message = this.message.split('').reverse().join('')},
+   },
+   })
+</script>
